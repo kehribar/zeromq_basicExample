@@ -47,8 +47,9 @@ int main(void)
     uint8_t rxBuffer[128];
     uint8_t txBuffer[128];
     
-     /* Provide a clean exit ... */
-    signal(SIGINT,sig_handler);  
+    /* Provide a clean exit ... */
+    /* this seems unneccsary, since zeromq handles sigint internally? */ 
+    // signal(SIGINT,sig_handler);  
         
     context = zmq_ctx_new();
     sock = zmq_socket(context,ZMQ_REQ);
